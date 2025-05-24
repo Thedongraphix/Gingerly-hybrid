@@ -1,15 +1,14 @@
-/* app/globals.css - Updated Modern Design System with Jost Font */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Modern base colors with improved contrast */
-    --background: 210 40% 98%;
+    /* Modern vibrant colors */
+    --background: 220 40% 98%;
     --foreground: 222 47% 11%;
     
-    /* Card styles */
+    /* Card styles with subtle depth */
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
     
@@ -50,7 +49,7 @@
     --chart-5: 48 96% 53%;
     
     /* Border radius */
-    --radius: 0.5rem;
+    --radius: 1rem;
     
     /* Sidebar styles */
     --sidebar-background: 222 47% 11%;
@@ -61,9 +60,6 @@
     --sidebar-accent-foreground: 210 40% 98%;
     --sidebar-border: 224 71% 20%;
     --sidebar-ring: 210 40% 98%;
-
-    /* Font config - Using only Jost */
-    --font-sans: 'Jost', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   }
   
   .dark {
@@ -100,252 +96,65 @@
     --chart-3: 168 96% 50%;
     --chart-4: 132 64% 55%;
     --chart-5: 48 96% 65%;
-    
-    --sidebar-background: 222 47% 12%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 198 80% 55%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 224 76% 45%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 224 76% 20%;
-    --sidebar-ring: 198 80% 55%;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
-    font-family: var(--font-sans);
   }
   
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
-    font-family: var(--font-sans);
   }
-  
-  /* Typography scale - All using Jost */
-  h1, .h1 {
-    @apply text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl;
-    font-family: var(--font-sans);
-    letter-spacing: -0.02em;
-  }
-  
-  h2, .h2 {
-    @apply text-2xl font-semibold tracking-tight sm:text-3xl;
-    font-family: var(--font-sans);
-    letter-spacing: -0.01em;
-  }
-  
-  h3, .h3 {
-    @apply text-xl font-semibold sm:text-2xl;
-    font-family: var(--font-sans);
-  }
-  
-  h4, .h4 {
-    @apply text-lg font-medium sm:text-xl;
-    font-family: var(--font-sans);
-  }
-  
-  h5, .h5 {
-    @apply text-base font-medium sm:text-lg;
-    font-family: var(--font-sans);
-  }
-  
-  h6, .h6 {
-    @apply text-sm font-medium sm:text-base;
-    font-family: var(--font-sans);
-  }
-  
-  p {
-    @apply leading-relaxed;
-    font-family: var(--font-sans);
-  }
-  
-  small, .small {
-    @apply text-sm;
-    font-family: var(--font-sans);
-  }
-  
-  /* Form elements */
+
+  /* Modern input styling */
   input, textarea, select {
-    font-family: var(--font-sans);
+    @apply rounded-xl border-2 border-input bg-transparent px-4 py-2 text-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50;
   }
-  
-  /* Buttons */
-  button, .button {
-    font-family: var(--font-sans);
+
+  /* Modern button styling */
+  button {
+    @apply rounded-xl transition-all duration-200 active:scale-95;
   }
-  
-  /* Labels */
-  label {
-    font-family: var(--font-sans);
+
+  /* Card styling with subtle shadows */
+  .card {
+    @apply rounded-xl border bg-card p-6 shadow-lg shadow-primary/5 transition-all duration-200 hover:shadow-xl;
   }
-  
-  /* Navigation and UI elements */
-  nav, header, footer {
-    font-family: var(--font-sans);
+
+  /* Modern table styling */
+  table {
+    @apply w-full border-collapse;
   }
-  
-  /* All interactive elements */
-  a, span, div {
-    font-family: var(--font-sans);
+
+  th, td {
+    @apply border-b border-border p-4 text-left;
+  }
+
+  th {
+    @apply font-semibold text-muted-foreground;
+  }
+
+  /* Badge styling */
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors;
+  }
+
+  /* Modern transitions */
+  .transition-all {
+    @apply duration-200 ease-in-out;
   }
 }
 
-/* Responsive layout utilities */
+/* Custom utilities */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  
-  .container {
-    @apply px-4 mx-auto sm:px-6 lg:px-8;
-    max-width: 1280px;
-  }
-  
-  /* Animation utilities */
-  .animate-fade {
-    @apply transition-opacity duration-300;
-  }
-  
-  .animate-slide {
-    @apply transition-all duration-300;
-  }
-  
-  /* Card utilities */
-  .card-hover {
-    @apply transition-all duration-200 hover:shadow-md hover:-translate-y-1;
-  }
-  
-  .card-interactive {
-    @apply cursor-pointer transition-all duration-200 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2;
-  }
-  
-  /* Grid layouts */
-  .dashboard-grid {
-    @apply grid gap-4 sm:grid-cols-2 lg:grid-cols-4;
-  }
-  
-  /* Mobile optimizations */
-  .mobile-safe-padding {
-    @apply pb-safe pt-safe px-safe;
-  }
-  
-  /* Scrollbar styling */
-  .custom-scrollbar {
-    @apply scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-secondary/40 hover:scrollbar-thumb-primary/40;
-  }
-  
-  /* Focus styles */
-  .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50;
-  }
-  
-  /* Hero section spacing */
-  .hero-section {
-    @apply py-12 md:py-24 lg:py-32;
-  }
-  
-  /* Content section spacing */
-  .content-section {
-    @apply py-8 md:py-16;
+  .glass {
+    @apply bg-white/10 backdrop-blur-lg;
   }
 
-  /* Property card */
-  .property-card {
-    @apply group flex items-center justify-between rounded-xl border p-5 bg-background transition-all hover:border-primary/40 hover:shadow-sm;
-  }
-
-  /* Gradient buttons */
-  .btn-gradient {
-    @apply bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70;
-  }
-
-  /* Glass effects */
-  .glass-effect {
-    @apply bg-background/30 backdrop-blur-md border border-white/20 shadow-lg;
-  }
-
-  /* Dot separator */
-  .dot-separator {
-    @apply w-1 h-1 rounded-full bg-muted-foreground;
-  }
-
-  /* Data badges */
-  .data-badge {
-    @apply inline-flex items-center text-xs font-medium px-2 py-1 rounded-full bg-primary/10 text-primary;
-  }
-
-  /* Status indicators */
-  .status-indicator {
-    @apply inline-block h-2 w-2 rounded-full;
-  }
-
-  .status-active {
-    @apply bg-green-500;
-  }
-
-  .status-pending {
-    @apply bg-amber-500;
-  }
-
-  .status-inactive {
-    @apply bg-gray-400;
-  }
-  
-  /* Force Jost font everywhere */
-  .font-jost {
-    font-family: var(--font-sans) !important;
-  }
-}
-
-/* Improved sidebar and navigation */
-.bg-sidebar {
-  background-color: hsl(var(--sidebar-background));
-  color: hsl(var(--sidebar-foreground));
-  font-family: var(--font-sans);
-}
-
-.text-sidebar-foreground {
-  color: hsl(var(--sidebar-foreground));
-  font-family: var(--font-sans);
-}
-
-.bg-sidebar-accent {
-  background-color: hsl(var(--sidebar-accent));
-  font-family: var(--font-sans);
-}
-
-.text-sidebar-accent-foreground {
-  color: hsl(var(--sidebar-accent-foreground));
-  font-family: var(--font-sans);
-}
-
-.border-sidebar-border {
-  border-color: hsl(var(--sidebar-border));
-}
-
-/* Component-specific font enforcement */
-[data-radix-root] {
-  font-family: var(--font-sans) !important;
-}
-
-/* Ensure all UI library components use Jost */
-[role="button"], [role="menuitem"], [role="tab"], [role="dialog"] {
-  font-family: var(--font-sans) !important;
-}
-
-/* Touch device optimizations */
-@media (hover: none) {
-  .card-hover {
-    @apply transition-none transform-none hover:transform-none;
-  }
-  
-  button, 
-  .button,
-  a {
-    @apply touch-none outline-none;
-    font-family: var(--font-sans);
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
   }
 }
