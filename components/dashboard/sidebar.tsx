@@ -17,7 +17,8 @@ import {
   CalendarDays,
   Bell,
   FileText,
-  HelpCircle
+  HelpCircle,
+  Sparkles
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useSidebar } from "@/components/sidebar-provider"
@@ -60,14 +61,19 @@ export function DashboardSidebar() {
 
   if (!isOpen && !isMobile) {
     return (
-      <div className="hidden w-16 flex-col border-r bg-sidebar md:flex shadow-sm">
-        <div className="flex h-16 items-center justify-center border-b border-sidebar-border">
-          <Button variant="ghost" size="icon" onClick={() => setIsOpen(true)} className="text-sidebar-foreground hover:bg-sidebar-accent/30">
+      <div className="hidden w-16 flex-col border-r border-border/20 bg-white/95 backdrop-blur-sm md:flex shadow-lg">
+        <div className="flex h-16 items-center justify-center border-b border-border/20">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={() => setIsOpen(true)} 
+            className="text-foreground hover:bg-primary/10 hover:text-primary transition-all duration-200"
+          >
             <Menu className="h-5 w-5" />
             <span className="sr-only">Toggle sidebar</span>
           </Button>
         </div>
-        <nav className="flex flex-1 flex-col gap-3 p-3 pt-6">
+        <nav className="flex flex-1 flex-col gap-2 p-3 pt-6">
           {links.map((link) => (
             <Button 
               key={link.href} 
@@ -75,16 +81,16 @@ export function DashboardSidebar() {
               size="icon" 
               asChild
               className={cn(
-                "relative text-sidebar-foreground h-11 w-11",
+                "relative h-11 w-11 rounded-xl transition-all duration-200",
                 pathname === link.href ? 
-                  "bg-sidebar-accent text-sidebar-accent-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground" : 
-                  "hover:bg-sidebar-accent/30 hover:text-sidebar-foreground"
+                  "bg-primary text-white shadow-md hover:bg-primary/90" : 
+                  "text-muted-foreground hover:bg-primary/10 hover:text-primary"
               )}
             >
               <Link href={link.href}>
                 <link.icon className="h-5 w-5" />
                 {link.badge && (
-                  <Badge className="absolute -top-0.5 -right-0.5 h-4 w-4 p-0 flex items-center justify-center text-[10px] bg-primary text-primary-foreground">
+                  <Badge className="absolute -top-1 -right-1 h-5 w-5 p-0 flex items-center justify-center text-[10px] bg-gradient-to-r from-red-500 to-pink-500 text-white border-0">
                     {link.badge}
                   </Badge>
                 )}
@@ -93,13 +99,13 @@ export function DashboardSidebar() {
             </Button>
           ))}
         </nav>
-        <div className="flex flex-col gap-3 border-t border-sidebar-border p-3 pb-6">
-          <ThemeToggle variant="sidebar" />
+        <div className="flex flex-col gap-2 border-t border-border/20 p-3 pb-6">
+          <ThemeToggle />
           <Button 
             variant="ghost" 
             size="icon" 
             asChild 
-            className="h-11 w-11 text-sidebar-foreground hover:bg-sidebar-accent/30 hover:text-sidebar-foreground"
+            className="h-11 w-11 rounded-xl text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all duration-200"
           >
             <Link href="/help">
               <HelpCircle className="h-5 w-5" />
@@ -110,7 +116,7 @@ export function DashboardSidebar() {
             variant="ghost" 
             size="icon" 
             asChild 
-            className="h-11 w-11 text-sidebar-foreground hover:bg-sidebar-accent/30 hover:text-sidebar-foreground"
+            className="h-11 w-11 rounded-xl text-muted-foreground hover:bg-red-50 hover:text-red-500 transition-all duration-200"
           >
             <Link href="/logout">
               <LogOut className="h-5 w-5" />
@@ -127,16 +133,22 @@ export function DashboardSidebar() {
   }
 
   return (
-    <div className={cn("fixed inset-0 z-50 bg-sidebar md:relative md:z-0 shadow-lg", isMobile ? "w-full" : "w-72")}>
-      <div className="flex h-16 items-center border-b border-sidebar-border px-6">
-        <Link href="/" className="flex items-center gap-2 text-sidebar-foreground">
-          <Building2 className="h-6 w-6" />
-          <span className="font-bold text-lg">Gingerly</span>
+    <div className={cn(
+      "fixed inset-0 z-50 md:relative md:z-0 shadow-xl", 
+      isMobile ? "w-full" : "w-72",
+      "bg-white/95 backdrop-blur-xl border-r border-border/20"
+    )}>
+      <div className="flex h-16 items-center border-b border-border/20 px-6">
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="rounded-xl bg-gradient-to-r from-primary to-accent p-2 group-hover:scale-110 transition-transform duration-200">
+            <Building2 className="h-5 w-5 text-white" />
+          </div>
+          <span className="font-bold text-xl gradient-text">Gingerly</span>
         </Link>
         <Button 
           variant="ghost" 
           size="icon" 
-          className="ml-auto md:hidden text-sidebar-foreground hover:bg-sidebar-accent/30" 
+          className="ml-auto md:hidden text-foreground hover:bg-primary/10 hover:text-primary rounded-xl transition-all duration-200" 
           onClick={() => setIsOpen(false)}
         >
           <X className="h-5 w-5" />
@@ -145,7 +157,7 @@ export function DashboardSidebar() {
         <Button 
           variant="ghost" 
           size="icon" 
-          className="ml-auto hidden md:flex text-sidebar-foreground hover:bg-sidebar-accent/30" 
+          className="ml-auto hidden md:flex text-foreground hover:bg-primary/10 hover:text-primary rounded-xl transition-all duration-200" 
           onClick={() => setIsOpen(false)}
         >
           <Menu className="h-5 w-5" />
@@ -154,40 +166,53 @@ export function DashboardSidebar() {
       </div>
       
       <div className="flex flex-1 flex-col">
-        <div className="px-5 py-6">
-          <div className="flex items-center gap-3 mb-6">
-            <Avatar className="h-10 w-10 border-2 border-primary/20">
-              <AvatarImage src="" />
-              <AvatarFallback className="bg-sidebar-accent text-sidebar-accent-foreground">JD</AvatarFallback>
-            </Avatar>
-            <div>
-              <p className="text-sm font-medium text-sidebar-foreground">John Doe</p>
-              <p className="text-xs text-sidebar-foreground/70">{isLandlord ? "Landlord" : "Tenant"}</p>
+        <div className="px-6 py-6">
+          <div className="glass-card p-4 rounded-2xl border border-border/20">
+            <div className="flex items-center gap-3">
+              <Avatar className="h-12 w-12 border-2 border-primary/30 shadow-md">
+                <AvatarImage src="" />
+                <AvatarFallback className="bg-gradient-to-r from-primary to-accent text-white font-semibold">JD</AvatarFallback>
+              </Avatar>
+              <div className="flex-1">
+                <p className="font-semibold text-foreground">John Doe</p>
+                <div className="flex items-center gap-2">
+                  <div className={cn(
+                    "px-2 py-1 rounded-full text-xs font-medium",
+                    isLandlord ? "bg-blue-50 text-blue-700" : "bg-green-50 text-green-700"
+                  )}>
+                    {isLandlord ? "Landlord" : "Tenant"}
+                  </div>
+                  <Sparkles className="h-3 w-3 text-yellow-500" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
         
-        <nav className="px-3 space-y-1.5">
-          <div className="mb-2 px-2">
-            <p className="text-xs uppercase tracking-wider text-sidebar-foreground/50 font-medium mb-1">Menu</p>
+        <nav className="px-4 space-y-1 flex-1">
+          <div className="mb-4 px-2">
+            <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-3">Navigation</p>
           </div>
           {links.map((link) => (
             <Button
               key={link.href}
               variant="ghost"
               className={cn(
-                "w-full justify-start h-11 px-3 text-sidebar-foreground mb-1 overflow-visible",
+                "w-full justify-start h-12 px-4 rounded-xl transition-all duration-200 mb-1 group",
                 pathname === link.href ? 
-                  "bg-sidebar-accent text-sidebar-accent-foreground font-medium hover:bg-sidebar-accent hover:text-sidebar-accent-foreground" : 
-                  "hover:bg-sidebar-accent/30 hover:text-sidebar-foreground"
+                  "bg-primary text-white shadow-md hover:bg-primary/90 font-medium" : 
+                  "text-muted-foreground hover:bg-primary/10 hover:text-primary hover:shadow-sm"
               )}
               asChild
             >
               <Link href={link.href} className="relative">
-                <link.icon className="mr-3 h-[18px] w-[18px]" />
-                {link.name}
+                <link.icon className={cn(
+                  "mr-3 h-5 w-5 transition-all duration-200",
+                  pathname === link.href ? "text-white" : "group-hover:scale-110"
+                )} />
+                <span className="font-medium">{link.name}</span>
                 {link.badge && (
-                  <Badge className="absolute right-0 ml-auto h-5 min-w-5 px-1 flex items-center justify-center text-[10px] bg-primary text-primary-foreground">
+                  <Badge className="absolute right-2 ml-auto h-5 min-w-5 px-2 flex items-center justify-center text-[10px] bg-gradient-to-r from-red-500 to-pink-500 text-white border-0 shadow-sm">
                     {link.badge}
                   </Badge>
                 )}
@@ -196,18 +221,28 @@ export function DashboardSidebar() {
           ))}
         </nav>
         
-        <div className="mt-auto border-t border-sidebar-border p-5">
-          <div className="flex flex-col gap-2">
-            <Button variant="ghost" size="sm" className="w-full justify-start h-10 text-sidebar-foreground hover:bg-sidebar-accent/30" asChild>
+        <div className="border-t border-border/20 p-4 mt-4">
+          <div className="space-y-2">
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="w-full justify-start h-10 rounded-xl text-muted-foreground hover:bg-blue-50 hover:text-blue-600 transition-all duration-200" 
+              asChild
+            >
               <Link href="/help">
-                <HelpCircle className="mr-2 h-4 w-4" />
-                Help & Support
+                <HelpCircle className="mr-3 h-4 w-4" />
+                <span className="font-medium">Help & Support</span>
               </Link>
             </Button>
-            <Button variant="outline" size="sm" className="w-full justify-start h-10 border-sidebar-border text-sidebar-foreground hover:bg-sidebar-accent/30 hover:text-sidebar-foreground" asChild>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="w-full justify-start h-10 rounded-xl border-border/30 text-muted-foreground hover:bg-red-50 hover:text-red-500 hover:border-red-200 transition-all duration-200" 
+              asChild
+            >
               <Link href="/logout">
-                <LogOut className="mr-2 h-4 w-4" />
-                Log out
+                <LogOut className="mr-3 h-4 w-4" />
+                <span className="font-medium">Log out</span>
               </Link>
             </Button>
           </div>
