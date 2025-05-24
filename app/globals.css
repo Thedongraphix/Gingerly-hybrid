@@ -1,11 +1,11 @@
-/* app/globals.css - Updated Modern Design System with Responsive Optimization */
+/* app/globals.css - Updated Modern Design System with Jost Font */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Modern base colors */
+    /* Modern base colors with improved contrast */
     --background: 210 40% 98%;
     --foreground: 222 47% 11%;
     
@@ -17,8 +17,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
     
-    /* Primary brand color - Deep blue */
-    --primary: 222 47% 35%;
+    /* Primary brand color - Vibrant blue */
+    --primary: 222 83% 42%;
     --primary-foreground: 210 40% 98%;
     
     /* Secondary color */
@@ -30,7 +30,7 @@
     --muted-foreground: 215 16% 47%;
     
     /* Accent colors */
-    --accent: 198 67% 46%;
+    --accent: 198 80% 46%;
     --accent-foreground: 210 40% 98%;
     
     /* Destructive/Error state */
@@ -40,43 +40,43 @@
     /* Border & input styles */
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222 47% 35%;
+    --ring: 222 83% 42%;
     
     /* Chart colors */
-    --chart-1: 222 47% 45%;
-    --chart-2: 198 67% 46%;
-    --chart-3: 168 96% 35%;
-    --chart-4: 132 64% 38%;
+    --chart-1: 222 83% 50%;
+    --chart-2: 198 80% 50%;
+    --chart-3: 168 96% 40%;
+    --chart-4: 132 64% 44%;
     --chart-5: 48 96% 53%;
     
     /* Border radius */
     --radius: 0.5rem;
     
     /* Sidebar styles */
-    --sidebar-background: 222 47% 35%;
+    --sidebar-background: 222 47% 11%;
     --sidebar-foreground: 210 40% 98%;
     --sidebar-primary: 210 40% 98%;
-    --sidebar-primary-foreground: 222 47% 35%;
-    --sidebar-accent: 224 71% 40%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 224 71% 45%;
     --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 224 71% 30%;
+    --sidebar-border: 224 71% 20%;
     --sidebar-ring: 210 40% 98%;
 
-    /* Font config */
-    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    /* Font config - Using only Jost */
+    --font-sans: 'Jost', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   }
   
   .dark {
-    --background: 222 47% 8%;
+    --background: 222 47% 10%;
     --foreground: 210 40% 98%;
     
-    --card: 222 47% 10%;
+    --card: 222 47% 12%;
     --card-foreground: 210 40% 98%;
     
-    --popover: 222 47% 10%;
+    --popover: 222 47% 12%;
     --popover-foreground: 210 40% 98%;
     
-    --primary: 222 47% 50%;
+    --primary: 222 83% 55%;
     --primary-foreground: 210 40% 98%;
     
     --secondary: 217 32% 17%;
@@ -85,68 +85,111 @@
     --muted: 217 32% 17%;
     --muted-foreground: 215 20% 65%;
     
-    --accent: 198 67% 46%;
+    --accent: 198 80% 55%;
     --accent-foreground: 210 40% 98%;
     
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 70% 45%;
     --destructive-foreground: 210 40% 98%;
     
     --border: 217 32% 17%;
     --input: 217 32% 17%;
     --ring: 224 76% 60%;
     
-    --chart-1: 222 47% 60%;
-    --chart-2: 198 67% 60%;
-    --chart-3: 168 96% 45%;
-    --chart-4: 132 64% 48%;
-    --chart-5: 48 96% 63%;
+    --chart-1: 222 83% 65%;
+    --chart-2: 198 80% 65%;
+    --chart-3: 168 96% 50%;
+    --chart-4: 132 64% 55%;
+    --chart-5: 48 96% 65%;
     
-    --sidebar-background: 222 47% 15%;
+    --sidebar-background: 222 47% 12%;
     --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 198 67% 46%;
+    --sidebar-primary: 198 80% 55%;
     --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 224 76% 30%;
+    --sidebar-accent: 224 76% 45%;
     --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 224 76% 25%;
-    --sidebar-ring: 198 67% 46%;
+    --sidebar-border: 224 76% 20%;
+    --sidebar-ring: 198 80% 55%;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+    font-family: var(--font-sans);
   }
   
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: var(--font-sans);
   }
   
-  /* Modern typography scale */
+  /* Typography scale - All using Jost */
   h1, .h1 {
     @apply text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl;
+    font-family: var(--font-sans);
     letter-spacing: -0.02em;
   }
   
   h2, .h2 {
     @apply text-2xl font-semibold tracking-tight sm:text-3xl;
+    font-family: var(--font-sans);
     letter-spacing: -0.01em;
   }
   
   h3, .h3 {
     @apply text-xl font-semibold sm:text-2xl;
+    font-family: var(--font-sans);
   }
   
   h4, .h4 {
     @apply text-lg font-medium sm:text-xl;
+    font-family: var(--font-sans);
+  }
+  
+  h5, .h5 {
+    @apply text-base font-medium sm:text-lg;
+    font-family: var(--font-sans);
+  }
+  
+  h6, .h6 {
+    @apply text-sm font-medium sm:text-base;
+    font-family: var(--font-sans);
   }
   
   p {
     @apply leading-relaxed;
+    font-family: var(--font-sans);
   }
   
   small, .small {
     @apply text-sm;
+    font-family: var(--font-sans);
+  }
+  
+  /* Form elements */
+  input, textarea, select {
+    font-family: var(--font-sans);
+  }
+  
+  /* Buttons */
+  button, .button {
+    font-family: var(--font-sans);
+  }
+  
+  /* Labels */
+  label {
+    font-family: var(--font-sans);
+  }
+  
+  /* Navigation and UI elements */
+  nav, header, footer {
+    font-family: var(--font-sans);
+  }
+  
+  /* All interactive elements */
+  a, span, div {
+    font-family: var(--font-sans);
   }
 }
 
@@ -208,6 +251,89 @@
   .content-section {
     @apply py-8 md:py-16;
   }
+
+  /* Property card */
+  .property-card {
+    @apply group flex items-center justify-between rounded-xl border p-5 bg-background transition-all hover:border-primary/40 hover:shadow-sm;
+  }
+
+  /* Gradient buttons */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70;
+  }
+
+  /* Glass effects */
+  .glass-effect {
+    @apply bg-background/30 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+
+  /* Dot separator */
+  .dot-separator {
+    @apply w-1 h-1 rounded-full bg-muted-foreground;
+  }
+
+  /* Data badges */
+  .data-badge {
+    @apply inline-flex items-center text-xs font-medium px-2 py-1 rounded-full bg-primary/10 text-primary;
+  }
+
+  /* Status indicators */
+  .status-indicator {
+    @apply inline-block h-2 w-2 rounded-full;
+  }
+
+  .status-active {
+    @apply bg-green-500;
+  }
+
+  .status-pending {
+    @apply bg-amber-500;
+  }
+
+  .status-inactive {
+    @apply bg-gray-400;
+  }
+  
+  /* Force Jost font everywhere */
+  .font-jost {
+    font-family: var(--font-sans) !important;
+  }
+}
+
+/* Improved sidebar and navigation */
+.bg-sidebar {
+  background-color: hsl(var(--sidebar-background));
+  color: hsl(var(--sidebar-foreground));
+  font-family: var(--font-sans);
+}
+
+.text-sidebar-foreground {
+  color: hsl(var(--sidebar-foreground));
+  font-family: var(--font-sans);
+}
+
+.bg-sidebar-accent {
+  background-color: hsl(var(--sidebar-accent));
+  font-family: var(--font-sans);
+}
+
+.text-sidebar-accent-foreground {
+  color: hsl(var(--sidebar-accent-foreground));
+  font-family: var(--font-sans);
+}
+
+.border-sidebar-border {
+  border-color: hsl(var(--sidebar-border));
+}
+
+/* Component-specific font enforcement */
+[data-radix-root] {
+  font-family: var(--font-sans) !important;
+}
+
+/* Ensure all UI library components use Jost */
+[role="button"], [role="menuitem"], [role="tab"], [role="dialog"] {
+  font-family: var(--font-sans) !important;
 }
 
 /* Touch device optimizations */
@@ -220,5 +346,6 @@
   .button,
   a {
     @apply touch-none outline-none;
+    font-family: var(--font-sans);
   }
 }

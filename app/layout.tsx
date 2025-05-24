@@ -1,15 +1,16 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter as FontSans } from "next/font/google"
+import { Jost } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { SidebarProvider } from "@/components/sidebar-provider"
 import { cn } from "@/lib/utils"
 
-const fontSans = FontSans({
+const fontSans = Jost({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 })
 
 export const metadata: Metadata = {
