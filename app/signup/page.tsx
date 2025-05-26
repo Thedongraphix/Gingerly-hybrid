@@ -142,46 +142,46 @@ export default function SignupPage() {
                       <div className="space-y-4">
                         <div className="space-y-2">
                           <Label htmlFor="first-name" className="text-sm font-semibold text-foreground">First Name</Label>
-                          <div className="relative">
-                            <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                            <Input id="first-name" placeholder="John" className="pl-10 input-modern" />
+                          <div className="input-with-icon">
+                            <User className="input-icon" />
+                            <Input id="first-name" placeholder="John" className="input-modern" />
                           </div>
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="email" className="text-sm font-semibold text-foreground">Email Address</Label>
-                          <div className="relative">
-                            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                            <Input id="email" type="email" placeholder="john@example.com" className="pl-10 input-modern" />
+                          <div className="input-with-icon">
+                            <Mail className="input-icon" />
+                            <Input id="email" type="email" placeholder="john@example.com" className="input-modern" />
                           </div>
                         </div>
                       </div>
                       <div className="space-y-4">
                         <div className="space-y-2">
                           <Label htmlFor="last-name" className="text-sm font-semibold text-foreground">Last Name</Label>
-                          <div className="relative">
-                            <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                            <Input id="last-name" placeholder="Doe" className="pl-10 input-modern" />
+                          <div className="input-with-icon">
+                            <User className="input-icon" />
+                            <Input id="last-name" placeholder="Doe" className="input-modern" />
                           </div>
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="phone" className="text-sm font-semibold text-foreground">Phone Number</Label>
-                          <div className="relative">
-                            <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                            <Input id="phone" placeholder="+1 (555) 000-0000" className="pl-10 input-modern" />
+                          <div className="input-with-icon">
+                            <Phone className="input-icon" />
+                            <Input id="phone" placeholder="+1 (555) 000-0000" className="input-modern" />
                           </div>
                         </div>
                       </div>
                       <div className="space-y-2 md:col-span-2">
                         <Label htmlFor="tenant-password" className="text-sm font-semibold text-foreground">Password</Label>
-                        <div className="relative">
-                          <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <div className="input-with-icon">
+                          <Lock className="input-icon" />
                           <Input
                             id="tenant-password"
                             type="password"
                             placeholder="Create a strong password"
                             value={tenantPassword}
                             onChange={(e) => setTenantPassword(e.target.value)}
-                            className="pl-10 input-modern"
+                            className="input-modern"
                           />
                         </div>
                         <PasswordStrengthIndicator password={tenantPassword} />
@@ -228,9 +228,9 @@ export default function SignupPage() {
                       </div>
                       <div className="space-y-2 md:col-span-2">
                         <Label htmlFor="card-number" className="text-sm font-semibold text-foreground">Card Number</Label>
-                        <div className="relative">
-                          <CreditCard className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input id="card-number" placeholder="4242 4242 4242 4242" className="pl-10 input-modern" />
+                        <div className="input-with-icon">
+                          <CreditCard className="input-icon" />
+                          <Input id="card-number" placeholder="4242 4242 4242 4242" className="input-modern" />
                         </div>
                       </div>
                       <div className="space-y-2">
@@ -270,16 +270,16 @@ export default function SignupPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="apartment" className="text-sm font-semibold text-foreground">Apartment Name</Label>
-                        <div className="relative">
-                          <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input id="apartment" placeholder="Sunset Apartments" className="pl-10 input-modern" />
+                        <div className="input-with-icon">
+                          <Building2 className="input-icon" />
+                          <Input id="apartment" placeholder="Sunset Apartments" className="input-modern" />
                         </div>
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="unit" className="text-sm font-semibold text-foreground">Unit Number</Label>
-                        <div className="relative">
-                          <Home className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input id="unit" placeholder="3B" className="pl-10 input-modern" />
+                        <div className="input-with-icon">
+                          <Home className="input-icon" />
+                          <Input id="unit" placeholder="3B" className="input-modern" />
                         </div>
                       </div>
                       <div className="space-y-2">
@@ -323,43 +323,43 @@ export default function SignupPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="business-name" className="text-sm font-semibold text-foreground">Business Name</Label>
-                        <div className="relative">
-                          <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input id="business-name" placeholder="Sunset Properties LLC" className="pl-10 input-modern" />
+                        <div className="input-with-icon">
+                          <Building2 className="input-icon" />
+                          <Input id="business-name" placeholder="Sunset Properties LLC" className="input-modern" />
                         </div>
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="name" className="text-sm font-semibold text-foreground">Full Name</Label>
-                        <div className="relative">
-                          <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input id="name" placeholder="John Doe" className="pl-10 input-modern" />
+                        <div className="input-with-icon">
+                          <User className="input-icon" />
+                          <Input id="name" placeholder="John Doe" className="input-modern" />
                         </div>
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="email" className="text-sm font-semibold text-foreground">Email Address</Label>
-                        <div className="relative">
-                          <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input id="email" type="email" placeholder="john@example.com" className="pl-10 input-modern" />
+                        <div className="input-with-icon">
+                          <Mail className="input-icon" />
+                          <Input id="email" type="email" placeholder="john@example.com" className="input-modern" />
                         </div>
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="phone" className="text-sm font-semibold text-foreground">Phone Number</Label>
-                        <div className="relative">
-                          <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input id="phone" placeholder="+1 (555) 000-0000" className="pl-10 input-modern" />
+                        <div className="input-with-icon">
+                          <Phone className="input-icon" />
+                          <Input id="phone" placeholder="+1 (555) 000-0000" className="input-modern" />
                         </div>
                       </div>
                       <div className="space-y-2 md:col-span-2">
                         <Label htmlFor="landlord-password" className="text-sm font-semibold text-foreground">Password</Label>
-                        <div className="relative">
-                          <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <div className="input-with-icon">
+                          <Lock className="input-icon" />
                           <Input
                             id="landlord-password"
                             type="password"
                             placeholder="Create a strong password"
                             value={landlordPassword}
                             onChange={(e) => setLandlordPassword(e.target.value)}
-                            className="pl-10 input-modern"
+                            className="input-modern"
                           />
                         </div>
                         <PasswordStrengthIndicator password={landlordPassword} />
@@ -389,9 +389,9 @@ export default function SignupPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="property-name" className="text-sm font-semibold text-foreground">Property Name</Label>
-                        <div className="relative">
-                          <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input id="property-name" placeholder="Sunset Apartments" className="pl-10 input-modern" />
+                        <div className="input-with-icon">
+                          <Building2 className="input-icon" />
+                          <Input id="property-name" placeholder="Sunset Apartments" className="input-modern" />
                         </div>
                       </div>
                       <div className="space-y-2">
@@ -400,9 +400,9 @@ export default function SignupPage() {
                       </div>
                       <div className="space-y-2 md:col-span-2">
                         <Label htmlFor="address" className="text-sm font-semibold text-foreground">Property Address</Label>
-                        <div className="relative">
-                          <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input id="address" placeholder="123 Main Street" className="pl-10 input-modern" />
+                        <div className="input-with-icon">
+                          <MapPin className="input-icon" />
+                          <Input id="address" placeholder="123 Main Street" className="input-modern" />
                         </div>
                       </div>
                       <div className="space-y-2">
@@ -450,9 +450,9 @@ export default function SignupPage() {
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="account-name" className="text-sm font-semibold text-foreground">Account Holder Name</Label>
-                        <div className="relative">
-                          <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input id="account-name" placeholder="John Doe or Business Name" className="pl-10 input-modern" />
+                        <div className="input-with-icon">
+                          <User className="input-icon" />
+                          <Input id="account-name" placeholder="John Doe or Business Name" className="input-modern" />
                         </div>
                       </div>
                       <div className="space-y-2">
