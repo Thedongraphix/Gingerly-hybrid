@@ -8,12 +8,12 @@ export default function DashboardLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex min-h-screen flex-col bg-gradient-to-br from-background via-background to-muted/20">
+    <div className="flex h-screen overflow-hidden bg-gradient-to-br from-background via-background to-muted/20">
       <MobileNav />
-      <div className="flex flex-1">
+      <div className="flex flex-1 overflow-hidden">
         <DashboardSidebar />
-        <main className="flex-1 p-6 md:p-8 bg-gradient-to-br from-background/50 to-muted/10">
-          <div className="mx-auto max-w-7xl space-y-8">
+        <main className="flex-1 overflow-auto bg-gradient-to-br from-background/50 to-muted/10">
+          <div className="mx-auto max-w-7xl p-6 md:p-8 space-y-8">
             {children}
           </div>
         </main>

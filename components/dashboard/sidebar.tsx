@@ -40,9 +40,11 @@ export function DashboardSidebar() {
     { name: "Tenants", href: "/dashboard/landlord/tenants", icon: Users },
     { name: "Payments", href: "/dashboard/landlord/payments", icon: CreditCard },
     { name: "Analytics", href: "/dashboard/landlord/analytics", icon: PieChart },
+    { name: "Maintenance", href: "/dashboard/landlord/maintenance", icon: Bell },
     { name: "Calendar", href: "/dashboard/landlord/calendar", icon: CalendarDays },
     { name: "Messages", href: "/dashboard/landlord/messages", icon: MessageSquare, badge: 3 },
     { name: "Documents", href: "/dashboard/landlord/documents", icon: FileText },
+    { name: "Help", href: "/dashboard/landlord/help", icon: HelpCircle },
     { name: "Settings", href: "/dashboard/landlord/settings", icon: Settings },
   ]
 
@@ -54,6 +56,7 @@ export function DashboardSidebar() {
     { name: "Calendar", href: "/dashboard/tenant/calendar", icon: CalendarDays },
     { name: "Messages", href: "/dashboard/tenant/messages", icon: MessageSquare, badge: 2 },
     { name: "Documents", href: "/dashboard/tenant/documents", icon: FileText },
+    { name: "Help", href: "/dashboard/tenant/help", icon: HelpCircle },
     { name: "Settings", href: "/dashboard/tenant/settings", icon: Settings },
   ]
 
@@ -61,7 +64,7 @@ export function DashboardSidebar() {
 
   if (!isOpen && !isMobile) {
     return (
-      <div className="hidden w-16 flex-col border-r border-border/20 bg-white/95 backdrop-blur-sm md:flex shadow-lg">
+      <div className="hidden w-16 h-full flex-col border-r border-border/20 bg-white/95 backdrop-blur-sm md:flex shadow-lg">
         <div className="flex h-16 items-center justify-center border-b border-border/20">
           <Button 
             variant="ghost" 
@@ -73,7 +76,7 @@ export function DashboardSidebar() {
             <span className="sr-only">Toggle sidebar</span>
           </Button>
         </div>
-        <nav className="flex flex-1 flex-col gap-2 p-3 pt-6">
+        <nav className="flex flex-1 flex-col gap-2 p-3 pt-6 overflow-y-auto">
           {links.map((link) => (
             <Button 
               key={link.href} 
@@ -134,7 +137,7 @@ export function DashboardSidebar() {
 
   return (
     <div className={cn(
-      "fixed inset-0 z-50 md:relative md:z-0 shadow-xl", 
+      "fixed inset-0 z-50 md:relative md:z-0 shadow-xl md:h-full", 
       isMobile ? "w-full" : "w-72",
       "bg-white/95 backdrop-blur-xl border-r border-border/20"
     )}>
@@ -165,7 +168,7 @@ export function DashboardSidebar() {
         </Button>
       </div>
       
-      <div className="flex flex-1 flex-col">
+      <div className="flex flex-1 flex-col h-[calc(100%-4rem)] overflow-hidden">
         <div className="px-6 py-6">
           <div className="glass-card p-4 rounded-2xl border border-border/20">
             <div className="flex items-center gap-3">
@@ -189,7 +192,7 @@ export function DashboardSidebar() {
           </div>
         </div>
         
-        <nav className="px-4 space-y-1 flex-1">
+        <nav className="px-4 space-y-1 flex-1 overflow-y-auto">
           <div className="mb-4 px-2">
             <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-3">Navigation</p>
           </div>
