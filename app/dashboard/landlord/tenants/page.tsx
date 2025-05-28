@@ -159,24 +159,26 @@ export default function TenantsPage() {
   const overdueTenants = allTenants.filter(tenant => tenant.status === 'overdue')
 
   return (
-    <div className="space-y-8">
-      {/* Modern Header */}
-      <div className="relative overflow-hidden rounded-3xl glass-card border border-border/50 p-6 md:p-8">
+    <div className="space-y-6 md:space-y-8">
+      {/* Modern Header - Mobile Optimized */}
+      <div className="relative overflow-hidden rounded-2xl md:rounded-3xl glass-card border border-border/50 p-4 md:p-6 lg:p-8">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-background to-blue-500/10" />
-        <div className="absolute top-4 right-4 w-32 h-32 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full blur-3xl" />
+        <div className="absolute top-4 right-4 w-20 h-20 md:w-32 md:h-32 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full blur-3xl" />
         
         <div className="relative">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
-            <div className="p-3 rounded-2xl bg-gradient-to-r from-purple-500 to-blue-600 text-white shadow-lg">
-              <Users className="h-6 w-6" />
+          <div className="flex flex-col gap-4 mb-4 md:mb-6">
+            <div className="flex items-start gap-3 md:gap-4">
+              <div className="p-2 md:p-3 rounded-xl md:rounded-2xl bg-gradient-to-r from-purple-500 to-blue-600 text-white shadow-lg shrink-0">
+                <Users className="h-5 w-5 md:h-6 md:w-6" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold gradient-text">Tenant Management</h1>
+                <p className="text-muted-foreground text-sm md:text-base lg:text-lg">Manage your tenants, payments, and property assignments.</p>
+              </div>
             </div>
-            <div className="flex-1">
-              <h1 className="text-2xl md:text-3xl font-bold gradient-text">Tenant Management</h1>
-              <p className="text-muted-foreground text-base md:text-lg">Manage your tenants, payments, and property assignments.</p>
-            </div>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <TenantOnboardingModal />
-              <Button variant="outline" className="btn-outline">
+              <Button variant="outline" className="btn-outline w-full sm:w-auto">
                 <Plus className="mr-2 h-4 w-4" />
                 Import Tenants
               </Button>
@@ -185,84 +187,84 @@ export default function TenantsPage() {
         </div>
       </div>
 
-      {/* Statistics Cards */}
-      <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-6">
+      {/* Statistics Cards - Mobile Grid */}
+      <div className="grid gap-3 md:gap-4 lg:gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
         <Card className="glass-card border border-border/50 hover:border-primary/30 hover:shadow-xl hover:scale-[1.02] transition-all duration-500 group">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+          <CardContent className="p-3 md:p-4 lg:p-6">
+            <div className="flex flex-col items-center text-center space-y-2">
+              <Users className="h-6 w-6 md:h-8 md:w-8 text-blue-500" />
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Total Tenants</p>
-                <p className="text-2xl font-bold text-foreground">{tenantStats.totalTenants}</p>
+                <p className="text-xs md:text-sm font-medium text-muted-foreground">Total Tenants</p>
+                <p className="text-lg md:text-xl lg:text-2xl font-bold text-foreground">{tenantStats.totalTenants}</p>
               </div>
-              <Users className="h-8 w-8 text-blue-500" />
             </div>
           </CardContent>
         </Card>
 
         <Card className="glass-card border border-border/50 hover:border-primary/30 hover:shadow-xl hover:scale-[1.02] transition-all duration-500 group">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+          <CardContent className="p-3 md:p-4 lg:p-6">
+            <div className="flex flex-col items-center text-center space-y-2">
+              <CheckCircle className="h-6 w-6 md:h-8 md:w-8 text-green-500" />
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Active</p>
-                <p className="text-2xl font-bold text-green-600">{tenantStats.activeTenants}</p>
+                <p className="text-xs md:text-sm font-medium text-muted-foreground">Active</p>
+                <p className="text-lg md:text-xl lg:text-2xl font-bold text-green-600">{tenantStats.activeTenants}</p>
               </div>
-              <CheckCircle className="h-8 w-8 text-green-500" />
             </div>
           </CardContent>
         </Card>
 
         <Card className="glass-card border border-border/50 hover:border-primary/30 hover:shadow-xl hover:scale-[1.02] transition-all duration-500 group">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+          <CardContent className="p-3 md:p-4 lg:p-6">
+            <div className="flex flex-col items-center text-center space-y-2">
+              <Clock className="h-6 w-6 md:h-8 md:w-8 text-orange-500" />
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Pending</p>
-                <p className="text-2xl font-bold text-orange-600">{tenantStats.pendingPayments}</p>
+                <p className="text-xs md:text-sm font-medium text-muted-foreground">Pending</p>
+                <p className="text-lg md:text-xl lg:text-2xl font-bold text-orange-600">{tenantStats.pendingPayments}</p>
               </div>
-              <Clock className="h-8 w-8 text-orange-500" />
             </div>
           </CardContent>
         </Card>
 
         <Card className="glass-card border border-border/50 hover:border-primary/30 hover:shadow-xl hover:scale-[1.02] transition-all duration-500 group">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+          <CardContent className="p-3 md:p-4 lg:p-6">
+            <div className="flex flex-col items-center text-center space-y-2">
+              <AlertTriangle className="h-6 w-6 md:h-8 md:w-8 text-red-500" />
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Overdue</p>
-                <p className="text-2xl font-bold text-red-600">{tenantStats.overduePayments}</p>
+                <p className="text-xs md:text-sm font-medium text-muted-foreground">Overdue</p>
+                <p className="text-lg md:text-xl lg:text-2xl font-bold text-red-600">{tenantStats.overduePayments}</p>
               </div>
-              <AlertTriangle className="h-8 w-8 text-red-500" />
             </div>
           </CardContent>
         </Card>
 
         <Card className="glass-card border border-border/50 hover:border-primary/30 hover:shadow-xl hover:scale-[1.02] transition-all duration-500 group">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+          <CardContent className="p-3 md:p-4 lg:p-6">
+            <div className="flex flex-col items-center text-center space-y-2">
+              <DollarSign className="h-6 w-6 md:h-8 md:w-8 text-purple-500" />
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Avg Rent</p>
-                <p className="text-2xl font-bold text-purple-600">{tenantStats.avgRent}</p>
+                <p className="text-xs md:text-sm font-medium text-muted-foreground">Avg Rent</p>
+                <p className="text-lg md:text-xl lg:text-2xl font-bold text-purple-600">{tenantStats.avgRent}</p>
               </div>
-              <DollarSign className="h-8 w-8 text-purple-500" />
             </div>
           </CardContent>
         </Card>
 
         <Card className="glass-card border border-border/50 hover:border-primary/30 hover:shadow-xl hover:scale-[1.02] transition-all duration-500 group">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+          <CardContent className="p-3 md:p-4 lg:p-6">
+            <div className="flex flex-col items-center text-center space-y-2">
+              <Star className="h-6 w-6 md:h-8 md:w-8 text-yellow-500" />
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Renewal Rate</p>
-                <p className="text-2xl font-bold text-green-600">{tenantStats.renewalRate}%</p>
+                <p className="text-xs md:text-sm font-medium text-muted-foreground">Renewal Rate</p>
+                <p className="text-lg md:text-xl lg:text-2xl font-bold text-green-600">{tenantStats.renewalRate}%</p>
               </div>
-              <Star className="h-8 w-8 text-yellow-500" />
             </div>
           </CardContent>
         </Card>
       </div>
 
-      {/* Search and Filter */}
-      <div className="glass-card border border-border/50 p-6 rounded-2xl bg-background/80 backdrop-blur-sm">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
+      {/* Search and Filter - Mobile Optimized */}
+      <div className="glass-card border border-border/50 p-4 md:p-6 rounded-2xl bg-background/80 backdrop-blur-sm">
+        <div className="flex flex-col gap-4">
           <div className="relative flex-1">
             <Search className="input-icon" />
             <Input 
@@ -295,7 +297,7 @@ export default function TenantsPage() {
                 <SelectItem value="overdue">Overdue</SelectItem>
               </SelectContent>
             </Select>
-            <Button variant="outline" className="btn-outline">
+            <Button variant="outline" className="btn-outline w-full sm:w-auto">
               <Download className="mr-2 h-4 w-4" />
               Export
             </Button>
@@ -303,38 +305,40 @@ export default function TenantsPage() {
         </div>
       </div>
 
-      {/* Enhanced Tabs */}
-      <Tabs defaultValue="all" className="space-y-6">
-        <TabsList className="glass-card border border-border/50 p-1 bg-background/80 backdrop-blur-sm rounded-2xl shadow-md w-full md:w-auto">
-          <TabsTrigger 
-            value="all" 
-            className="data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-md rounded-xl font-medium transition-all duration-200 flex-1 md:flex-none"
-          >
-            <Users className="mr-2 h-4 w-4" />
-            All Tenants
-          </TabsTrigger>
-          <TabsTrigger 
-            value="active"
-            className="data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-md rounded-xl font-medium transition-all duration-200 flex-1 md:flex-none"
-          >
-            <CheckCircle className="mr-2 h-4 w-4" />
-            Active
-          </TabsTrigger>
-          <TabsTrigger 
-            value="pending"
-            className="data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-md rounded-xl font-medium transition-all duration-200 flex-1 md:flex-none"
-          >
-            <Clock className="mr-2 h-4 w-4" />
-            Pending
-          </TabsTrigger>
-          <TabsTrigger 
-            value="overdue"
-            className="data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-md rounded-xl font-medium transition-all duration-200 flex-1 md:flex-none"
-          >
-            <AlertTriangle className="mr-2 h-4 w-4" />
-            Overdue
-          </TabsTrigger>
-        </TabsList>
+      {/* Enhanced Tabs - Mobile Optimized */}
+      <Tabs defaultValue="all" className="space-y-4 md:space-y-6">
+        <div className="overflow-x-auto">
+          <TabsList className="glass-card border border-border/50 p-1 bg-background/80 backdrop-blur-sm rounded-2xl shadow-md w-full min-w-fit">
+            <TabsTrigger 
+              value="all" 
+              className="data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-md rounded-xl font-medium transition-all duration-200 flex-1 text-xs md:text-sm whitespace-nowrap px-3 md:px-4"
+            >
+              <Users className="mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4" />
+              All Tenants
+            </TabsTrigger>
+            <TabsTrigger 
+              value="active"
+              className="data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-md rounded-xl font-medium transition-all duration-200 flex-1 text-xs md:text-sm whitespace-nowrap px-3 md:px-4"
+            >
+              <CheckCircle className="mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4" />
+              Active
+            </TabsTrigger>
+            <TabsTrigger 
+              value="pending"
+              className="data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-md rounded-xl font-medium transition-all duration-200 flex-1 text-xs md:text-sm whitespace-nowrap px-3 md:px-4"
+            >
+              <Clock className="mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4" />
+              Pending
+            </TabsTrigger>
+            <TabsTrigger 
+              value="overdue"
+              className="data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-md rounded-xl font-medium transition-all duration-200 flex-1 text-xs md:text-sm whitespace-nowrap px-3 md:px-4"
+            >
+              <AlertTriangle className="mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4" />
+              Overdue
+            </TabsTrigger>
+          </TabsList>
+        </div>
 
         <TabsContent value="all" className="space-y-6">
           <Card className="glass-card border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300">
