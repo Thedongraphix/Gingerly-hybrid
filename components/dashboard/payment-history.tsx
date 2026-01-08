@@ -11,7 +11,6 @@ export function PaymentHistory() {
       amount: "$1,200.00",
       status: "pending",
       method: "Visa •••• 4242",
-      gradient: "from-orange-500 to-yellow-600",
     },
     {
       id: 2,
@@ -19,7 +18,6 @@ export function PaymentHistory() {
       amount: "$1,200.00",
       status: "completed",
       method: "Visa •••• 4242",
-      gradient: "from-green-500 to-emerald-600",
     },
     {
       id: 3,
@@ -27,7 +25,6 @@ export function PaymentHistory() {
       amount: "$1,200.00",
       status: "completed",
       method: "Visa •••• 4242",
-      gradient: "from-blue-500 to-cyan-600",
     },
     {
       id: 4,
@@ -35,7 +32,6 @@ export function PaymentHistory() {
       amount: "$1,200.00",
       status: "completed",
       method: "Visa •••• 4242",
-      gradient: "from-purple-500 to-pink-600",
     },
     {
       id: 5,
@@ -43,7 +39,6 @@ export function PaymentHistory() {
       amount: "$1,200.00",
       status: "completed",
       method: "Visa •••• 4242",
-      gradient: "from-indigo-500 to-blue-600",
     },
   ]
 
@@ -75,44 +70,37 @@ export function PaymentHistory() {
       {payments.map((payment) => {
         const statusConfig = getStatusConfig(payment.status)
         const StatusIcon = statusConfig.icon
-        
+
         return (
-          <Card 
-            key={payment.id} 
-            className={cn(
-              "glass-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group",
-              "hover:scale-[1.01]"
-            )}
+          <Card
+            key={payment.id}
+            className="border border-border rounded-xl hover:shadow-md transition-shadow duration-200"
           >
-            <CardContent className="p-4">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className={cn(
-                    "w-12 h-12 rounded-2xl bg-gradient-to-r flex items-center justify-center text-white shadow-lg",
-                    "group-hover:scale-110 transition-transform duration-300",
-                    payment.gradient
-                  )}>
-                    <CreditCard className="h-6 w-6" />
+            <CardContent className="p-3 sm:p-4">
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-navy-500 text-white flex items-center justify-center flex-shrink-0">
+                    <CreditCard className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
-                  <div className="space-y-1">
-                    <p className="font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
+                  <div className="space-y-1 min-w-0">
+                    <p className="font-semibold text-sm sm:text-base text-navy-600 truncate">
                       {payment.date}
                     </p>
-                    <p className="text-sm text-muted-foreground font-medium">
+                    <p className="text-xs sm:text-sm text-muted-foreground font-medium truncate">
                       via {payment.method}
                     </p>
                   </div>
                 </div>
-                
-                <div className="flex items-center gap-4">
+
+                <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
                   <div className="text-right">
-                    <p className="text-lg font-bold text-foreground">
+                    <p className="text-sm sm:text-base font-bold text-teal-600 whitespace-nowrap">
                       {payment.amount}
                     </p>
                   </div>
-                  
+
                   <Badge className={cn(
-                    "flex items-center gap-1.5 px-3 py-1 font-semibold border text-xs rounded-full",
+                    "flex items-center gap-1.5 px-2 sm:px-3 py-0.5 sm:py-1 font-semibold border text-xs rounded-full",
                     statusConfig.className
                   )}>
                     <StatusIcon className="h-3 w-3" />
