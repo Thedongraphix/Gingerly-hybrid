@@ -25,30 +25,27 @@ import { cn } from "@/lib/utils"
 
 export default function LandlordDashboard() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-4 sm:space-y-6 lg:space-y-8 p-4 sm:p-0">
       {/* Modern Header */}
-      <div className="relative overflow-hidden rounded-3xl glass-card border border-border/50 p-8">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
-        <div className="absolute top-4 right-4 w-32 h-32 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-3xl" />
-        
-        <div className="relative flex flex-col justify-between gap-6 md:flex-row md:items-center">
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="p-3 rounded-2xl bg-gradient-to-r from-primary to-accent text-white shadow-lg">
-                <Building2 className="h-6 w-6" />
+      <div className="rounded-2xl bg-card border border-border p-4 sm:p-6 lg:p-8">
+        <div className="flex flex-col justify-between gap-4 sm:gap-6 md:flex-row md:items-center">
+          <div className="space-y-2 sm:space-y-3">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="p-2 sm:p-3 rounded-xl bg-navy-500 text-white flex-shrink-0">
+                <Building2 className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
-              <div>
-                <h1 className="text-3xl font-bold gradient-text">Welcome back, John!</h1>
-                <p className="text-muted-foreground text-lg">Here's what's happening with your properties today.</p>
+              <div className="min-w-0">
+                <h1 className="text-2xl sm:text-3xl font-bold text-navy-500 truncate">Welcome back, John!</h1>
+                <p className="text-muted-foreground text-sm sm:text-base">Here's what's happening with your properties today.</p>
               </div>
             </div>
           </div>
-          <div className="flex gap-3">
-            <Button className="btn-primary shadow-lg hover:shadow-xl">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+            <Button className="bg-teal-500 hover:bg-teal-600 text-white">
               <PlusCircle className="mr-2 h-5 w-5" />
               Add Property
             </Button>
-            <Button variant="outline" className="btn-outline shadow-sm hover:shadow-md">
+            <Button variant="outline" className="border-2 border-navy-500 text-navy-500 hover:bg-navy-500 hover:text-white">
               <Users className="mr-2 h-5 w-5" />
               Add Tenant
             </Button>
@@ -56,59 +53,60 @@ export default function LandlordDashboard() {
         </div>
       </div>
 
-      {/* Enhanced Alert */}
-      <Alert className="border-2 border-blue-200 bg-gradient-to-r from-blue-50 to-cyan-50 dark:border-blue-800 dark:from-blue-950/30 dark:to-cyan-950/30">
-        <div className="p-2 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-600 text-white w-fit">
-          <Sparkles className="h-4 w-4" />
+      {/* Performance Alert */}
+      <Alert className="border-l-4 border-l-teal-500 bg-teal-50">
+        <div className="p-2 rounded-lg bg-teal-500 text-white w-fit">
+          <TrendingUp className="h-4 w-4" />
         </div>
-        <AlertTitle className="text-blue-900 dark:text-blue-100 font-semibold">
-          🎉 Portfolio Growing Strong!
+        <AlertTitle className="text-navy-600 font-semibold text-base sm:text-lg">
+          Portfolio Growing Strong
         </AlertTitle>
-        <AlertDescription className="text-blue-700 dark:text-blue-200">
-          Your properties have generated <span className="font-semibold">$24,560</span> this month. Complete your remaining setups to maximize earnings.
+        <AlertDescription className="text-navy-500 text-sm sm:text-base">
+          Your properties have generated <span className="font-semibold text-teal-600">$24,560</span> this month. Complete your remaining setups to maximize earnings.
         </AlertDescription>
       </Alert>
 
       {/* Property Stats */}
       <PropertyStats />
 
-      {/* Enhanced Tabs */}
-      <Tabs defaultValue="overview" className="space-y-6">
-        <TabsList className="glass-card border border-border/50 p-1 bg-background/80 backdrop-blur-sm rounded-2xl shadow-md">
-          <TabsTrigger 
-            value="overview" 
-            className="data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-md rounded-xl font-medium transition-all duration-200"
+      {/* Dashboard Tabs */}
+      <Tabs defaultValue="overview" className="space-y-4 sm:space-y-6">
+        <TabsList className="bg-muted p-1 rounded-xl w-full sm:w-auto grid grid-cols-3 sm:inline-grid sm:grid-flow-col gap-1">
+          <TabsTrigger
+            value="overview"
+            className="data-[state=active]:bg-teal-500 data-[state=active]:text-white rounded-lg font-medium text-xs sm:text-sm px-3 sm:px-4 text-navy-500"
           >
-            <TrendingUp className="mr-2 h-4 w-4" />
-            Overview
+            <TrendingUp className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+            <span className="hidden sm:inline">Overview</span>
+            <span className="sm:hidden">Stats</span>
           </TabsTrigger>
-          <TabsTrigger 
+          <TabsTrigger
             value="properties"
-            className="data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-md rounded-xl font-medium transition-all duration-200"
+            className="data-[state=active]:bg-teal-500 data-[state=active]:text-white rounded-lg font-medium text-xs sm:text-sm px-3 sm:px-4 text-navy-500"
           >
-            <Building2 className="mr-2 h-4 w-4" />
+            <Building2 className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
             Properties
           </TabsTrigger>
-          <TabsTrigger 
+          <TabsTrigger
             value="tenants"
-            className="data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-md rounded-xl font-medium transition-all duration-200"
+            className="data-[state=active]:bg-teal-500 data-[state=active]:text-white rounded-lg font-medium text-xs sm:text-sm px-3 sm:px-4 text-navy-500"
           >
-            <Users className="mr-2 h-4 w-4" />
+            <Users className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
             Tenants
           </TabsTrigger>
         </TabsList>
         
         <TabsContent value="overview" className="space-y-6">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-7">
-            <Card className="lg:col-span-4 glass-card border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-7">
+            <Card className="lg:col-span-4 border border-border rounded-2xl">
               <CardHeader className="pb-4">
-                <CardTitle className="text-xl font-bold flex items-center gap-2">
-                  <div className="p-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+                <CardTitle className="text-lg sm:text-xl font-bold flex items-center gap-2">
+                  <div className="p-2 rounded-xl bg-navy-500 text-white">
                     <TrendingUp className="h-5 w-5" />
                   </div>
-                  Payment Analytics
+                  <span className="text-navy-600">Payment Analytics</span>
                 </CardTitle>
-                <CardDescription className="text-muted-foreground">
+                <CardDescription className="text-muted-foreground text-sm">
                   Monthly rent collection trends and status overview
                 </CardDescription>
               </CardHeader>
@@ -116,16 +114,16 @@ export default function LandlordDashboard() {
                 <PaymentStatusChart />
               </CardContent>
             </Card>
-            
-            <Card className="lg:col-span-3 glass-card border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300">
+
+            <Card className="lg:col-span-3 border border-border rounded-2xl">
               <CardHeader className="pb-4">
-                <CardTitle className="text-xl font-bold flex items-center gap-2">
-                  <div className="p-2 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 text-white">
+                <CardTitle className="text-lg sm:text-xl font-bold flex items-center gap-2">
+                  <div className="p-2 rounded-xl bg-teal-500 text-white">
                     <DollarSign className="h-5 w-5" />
                   </div>
-                  Recent Payments
+                  <span className="text-navy-600">Recent Payments</span>
                 </CardTitle>
-                <CardDescription className="text-muted-foreground">
+                <CardDescription className="text-muted-foreground text-sm">
                   Latest transactions from your tenants
                 </CardDescription>
               </CardHeader>
@@ -137,64 +135,56 @@ export default function LandlordDashboard() {
         </TabsContent>
         
         <TabsContent value="properties" className="space-y-6">
-          <Card className="glass-card border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300">
+          <Card className="border border-border rounded-2xl">
             <CardHeader>
               <CardTitle className="text-xl font-bold flex items-center gap-2">
-                <div className="p-2 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 text-white">
+                <div className="p-2 rounded-xl bg-navy-500 text-white">
                   <Building2 className="h-5 w-5" />
                 </div>
-                Your Properties
+                <span className="text-navy-600">Your Properties</span>
               </CardTitle>
               <CardDescription>Manage all your properties and track their performance</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid gap-4">
                 {[
-                  { name: "Sunset Apartments", units: 12, occupied: 10, address: "123 Main St", gradient: "from-blue-500 to-purple-600" },
-                  { name: "Ocean View Complex", units: 24, occupied: 22, address: "456 Ocean Dr", gradient: "from-green-500 to-emerald-600" },
-                  { name: "Downtown Lofts", units: 8, occupied: 8, address: "789 City Center", gradient: "from-orange-500 to-red-600" }
+                  { name: "Sunset Apartments", units: 12, occupied: 10, address: "123 Main St" },
+                  { name: "Ocean View Complex", units: 24, occupied: 22, address: "456 Ocean Dr" },
+                  { name: "Downtown Lofts", units: 8, occupied: 8, address: "789 City Center" }
                 ].map((property, i) => (
-                  <Card key={i} className="glass-card border border-border/50 hover:border-primary/30 hover:shadow-lg hover:scale-[1.01] transition-all duration-300 group">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                          <div className={cn(
-                            "w-12 h-12 rounded-2xl bg-gradient-to-r flex items-center justify-center text-white shadow-lg",
-                            "group-hover:scale-110 transition-transform duration-300",
-                            property.gradient
-                          )}>
+                  <Card key={i} className="border border-border rounded-xl hover:shadow-md transition-shadow duration-200">
+                    <CardContent className="p-4 sm:p-6">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                          <div className="w-12 h-12 rounded-xl bg-teal-500 text-white flex items-center justify-center flex-shrink-0">
                             <Home className="h-6 w-6" />
                           </div>
-                          <div className="space-y-2">
-                            <h3 className="font-bold text-lg group-hover:text-primary transition-colors duration-200">
+                          <div className="space-y-1 sm:space-y-2 min-w-0">
+                            <h3 className="font-bold text-base sm:text-lg text-navy-600 truncate">
                               {property.name}
                             </h3>
-                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
                               <span className="flex items-center gap-1">
-                                <Users className="h-4 w-4" />
+                                <Users className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
                                 {property.units} Units
                               </span>
-                              <span className="flex items-center gap-1">
-                                <MapPin className="h-4 w-4" />
-                                {property.address}
+                              <span className="flex items-center gap-1 truncate">
+                                <MapPin className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                                <span className="truncate">{property.address}</span>
                               </span>
                             </div>
                           </div>
                         </div>
-                        <div className="flex items-center gap-4">
-                          <div className="text-right">
-                            <div className="flex items-center gap-2">
-                              <Badge className={cn(
-                                "px-3 py-1 font-semibold",
-                                property.occupied === property.units 
-                                  ? "bg-green-100 text-green-700 border-green-200" 
-                                  : "bg-orange-100 text-orange-700 border-orange-200"
-                              )}>
-                                {property.occupied}/{property.units} Occupied
-                              </Badge>
-                            </div>
-                          </div>
-                          <Button variant="ghost" size="sm" className="hover:bg-primary/10 hover:text-primary rounded-xl">
+                        <div className="flex items-center justify-between sm:justify-end gap-3 flex-shrink-0">
+                          <Badge className={cn(
+                            "px-3 py-1 font-semibold rounded-full text-xs",
+                            property.occupied === property.units
+                              ? "bg-green-100 text-green-700 border-green-200"
+                              : "bg-orange-100 text-orange-700 border-orange-200"
+                          )}>
+                            {property.occupied}/{property.units} Occupied
+                          </Badge>
+                          <Button variant="ghost" size="sm" className="hover:bg-teal-100 hover:text-teal-600 rounded-lg">
                             <ArrowUpRight className="h-4 w-4" />
                           </Button>
                         </div>
@@ -208,52 +198,49 @@ export default function LandlordDashboard() {
         </TabsContent>
         
         <TabsContent value="tenants" className="space-y-6">
-          <Card className="glass-card border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300">
+          <Card className="border border-border rounded-2xl">
             <CardHeader>
               <CardTitle className="text-xl font-bold flex items-center gap-2">
-                <div className="p-2 rounded-xl bg-gradient-to-r from-purple-500 to-pink-600 text-white">
+                <div className="p-2 rounded-xl bg-teal-500 text-white">
                   <Users className="h-5 w-5" />
                 </div>
-                Your Tenants
+                <span className="text-navy-600">Your Tenants</span>
               </CardTitle>
               <CardDescription>Manage tenant relationships and payment status</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid gap-4">
                 {[
-                  { name: "Jane Smith", unit: "Unit 3B", property: "Sunset Apartments", status: "paid", gradient: "from-green-500 to-emerald-600" },
-                  { name: "Mike Johnson", unit: "Unit 7A", property: "Ocean View Complex", status: "paid", gradient: "from-blue-500 to-cyan-600" },
-                  { name: "Sarah Davis", unit: "Unit 2C", property: "Downtown Lofts", status: "pending", gradient: "from-orange-500 to-yellow-600" },
-                  { name: "Robert Wilson", unit: "Unit 5B", property: "Sunset Apartments", status: "paid", gradient: "from-purple-500 to-pink-600" }
+                  { name: "Jane Smith", unit: "Unit 3B", property: "Sunset Apartments", status: "paid" },
+                  { name: "Mike Johnson", unit: "Unit 7A", property: "Ocean View Complex", status: "paid" },
+                  { name: "Sarah Davis", unit: "Unit 2C", property: "Downtown Lofts", status: "pending" },
+                  { name: "Robert Wilson", unit: "Unit 5B", property: "Sunset Apartments", status: "paid" }
                 ].map((tenant, i) => (
-                  <Card key={i} className="glass-card border border-border/50 hover:border-primary/30 hover:shadow-lg hover:scale-[1.01] transition-all duration-300 group">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                          <Avatar className="h-12 w-12 border-2 border-white shadow-md">
-                            <AvatarFallback className={cn(
-                              "bg-gradient-to-r text-white font-semibold",
-                              tenant.gradient
-                            )}>
+                  <Card key={i} className="border border-border rounded-xl hover:shadow-md transition-shadow duration-200">
+                    <CardContent className="p-4 sm:p-6">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                          <Avatar className="h-12 w-12 border-2 border-border flex-shrink-0">
+                            <AvatarFallback className="bg-navy-500 text-white font-semibold text-sm">
                               {tenant.name.split(' ').map(n => n[0]).join('')}
                             </AvatarFallback>
                           </Avatar>
-                          <div className="space-y-2">
-                            <h3 className="font-bold text-lg group-hover:text-primary transition-colors duration-200">
+                          <div className="space-y-1 sm:space-y-2 min-w-0">
+                            <h3 className="font-bold text-base sm:text-lg text-navy-600 truncate">
                               {tenant.name}
                             </h3>
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <span>{tenant.property}</span>
-                              <span>•</span>
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground">
+                              <span className="truncate">{tenant.property}</span>
+                              <span className="hidden sm:inline">•</span>
                               <span>{tenant.unit}</span>
                             </div>
                           </div>
                         </div>
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center justify-between sm:justify-end gap-3 flex-shrink-0">
                           <Badge className={cn(
-                            "flex items-center gap-1.5 px-3 py-1 font-semibold border rounded-full",
-                            tenant.status === "paid" 
-                              ? "bg-green-100 text-green-700 border-green-200" 
+                            "flex items-center gap-1.5 px-3 py-1 font-semibold border rounded-full text-xs",
+                            tenant.status === "paid"
+                              ? "bg-green-100 text-green-700 border-green-200"
                               : "bg-orange-100 text-orange-700 border-orange-200"
                           )}>
                             {tenant.status === "paid" ? (
@@ -263,7 +250,7 @@ export default function LandlordDashboard() {
                             )}
                             {tenant.status === "paid" ? "Paid" : "Pending"}
                           </Badge>
-                          <Button variant="ghost" size="sm" className="hover:bg-primary/10 hover:text-primary rounded-xl">
+                          <Button variant="ghost" size="sm" className="hover:bg-teal-100 hover:text-teal-600 rounded-lg">
                             <ArrowUpRight className="h-4 w-4" />
                           </Button>
                         </div>

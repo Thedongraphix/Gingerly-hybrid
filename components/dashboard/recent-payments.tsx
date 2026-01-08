@@ -14,7 +14,6 @@ export function RecentPayments() {
       status: "completed",
       method: "Card",
       initials: "SJ",
-      gradient: "from-green-500 to-emerald-600",
     },
     {
       id: 2,
@@ -24,7 +23,6 @@ export function RecentPayments() {
       status: "completed",
       method: "Mpesa",
       initials: "MB",
-      gradient: "from-blue-500 to-cyan-600",
     },
     {
       id: 3,
@@ -34,7 +32,6 @@ export function RecentPayments() {
       status: "completed",
       method: "Card",
       initials: "ED",
-      gradient: "from-purple-500 to-pink-600",
     },
     {
       id: 4,
@@ -44,7 +41,6 @@ export function RecentPayments() {
       status: "pending",
       method: "Card",
       initials: "DW",
-      gradient: "from-orange-500 to-yellow-600",
     },
     {
       id: 5,
@@ -54,7 +50,6 @@ export function RecentPayments() {
       status: "failed",
       method: "Mpesa",
       initials: "LT",
-      gradient: "from-red-500 to-pink-600",
     },
   ]
 
@@ -92,53 +87,32 @@ export function RecentPayments() {
       {payments.map((payment) => {
         const statusConfig = getStatusConfig(payment.status)
         const StatusIcon = statusConfig.icon
-        
+
         return (
-          <Card 
-            key={payment.id} 
-            className={cn(
-              "glass-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group",
-              "hover:scale-[1.01] cursor-pointer"
-            )}
-          >
-            <CardContent className="p-4">
-              <div className="flex items-center gap-4">
-                <div className="relative">
-                  <Avatar className="h-12 w-12 border-2 border-white shadow-md">
-                    <AvatarFallback className={cn(
-                      "bg-gradient-to-r text-white font-semibold text-sm",
-                      payment.gradient
-                    )}>
+          <Card key={payment.id} className="border border-border rounded-xl hover:shadow-md transition-shadow duration-200">
+            <CardContent className="p-3 sm:p-4">
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 flex-1 min-w-0">
+                  <Avatar className="h-10 w-10 sm:h-12 sm:w-12 border-2 border-border flex-shrink-0">
+                    <AvatarFallback className="bg-navy-500 text-white font-semibold text-sm">
                       {payment.initials}
                     </AvatarFallback>
                   </Avatar>
-                  <div className="absolute -bottom-1 -right-1 p-1 bg-white rounded-full shadow-sm">
-                    {payment.method === "Card" ? (
-                      <CreditCard className="h-3 w-3 text-blue-600" />
-                    ) : (
-                      <Smartphone className="h-3 w-3 text-green-600" />
-                    )}
-                  </div>
-                </div>
-                
-                <div className="flex-1 space-y-1">
-                  <p className="font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
-                    {payment.tenant}
-                  </p>
-                  <p className="text-sm text-muted-foreground font-medium">
-                    {payment.date} • {payment.method}
-                  </p>
-                </div>
-                
-                <div className="flex items-center gap-3">
-                  <div className="text-right">
-                    <p className="text-lg font-bold text-foreground">
-                      {payment.amount}
+                  <div className="flex-1 min-w-0">
+                    <p className="font-semibold text-sm sm:text-base text-navy-600 truncate">
+                      {payment.tenant}
+                    </p>
+                    <p className="text-xs sm:text-sm text-muted-foreground truncate">
+                      {payment.date}
                     </p>
                   </div>
-                  
+                </div>
+                <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                  <p className="text-sm sm:text-base font-bold text-teal-600 whitespace-nowrap">
+                    {payment.amount}
+                  </p>
                   <Badge className={cn(
-                    "flex items-center gap-1.5 px-3 py-1 font-semibold border text-xs rounded-full",
+                    "flex items-center gap-1.5 px-2 sm:px-3 py-0.5 sm:py-1 font-semibold text-xs border rounded-full",
                     statusConfig.className
                   )}>
                     <StatusIcon className="h-3 w-3" />
