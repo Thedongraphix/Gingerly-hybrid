@@ -88,12 +88,21 @@ export function PropertyStats() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
       <StatCard
-        title="Total Properties"
+        title="Managed Properties"
         value="12"
         change="+2 this month"
         changeType="positive"
         icon={Building2}
         gradient="navy"
+      />
+      <StatCard
+        title="Active Landlords"
+        value="3"
+        change="+1 this month"
+        changeType="positive"
+        icon={Users}
+        subtitle="2 pending invites"
+        gradient="teal"
       />
       <StatCard
         title="Occupancy Rate"
@@ -111,15 +120,6 @@ export function PropertyStats() {
         changeType="positive"
         icon={Users}
         gradient="navy"
-      />
-      <StatCard
-        title="Monthly Revenue"
-        value="$72,540"
-        change="-$1,200"
-        changeType="negative"
-        icon={CreditCard}
-        subtitle="Average $1,230 per unit"
-        gradient="teal"
       />
     </div>
   );
