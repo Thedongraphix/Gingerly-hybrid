@@ -31,12 +31,13 @@ export function DashboardSidebar() {
   const pathname = usePathname()
   const { isOpen, setIsOpen, isMobile } = useSidebar()
 
-  // Determine if the current user is a landlord or tenant based on the URL
-  const isLandlord = pathname.includes("/landlord")
+  // Determine if the current user is an agent or tenant based on the URL
+  const isAgent = pathname.includes("/landlord") // URL path remains /landlord for now
 
-  // Only include existing pages
-  const landlordLinks = [
-    { name: "Dashboard", href: "/dashboard/landlord", icon: LayoutDashboard },
+  // Agent dashboard links
+  const agentLinks = [
+  
+    { name: "Landlords", href: "/dashboard/landlord", icon: Users },
     { name: "Properties", href: "/dashboard/landlord/properties", icon: Building2 },
     { name: "Tenants", href: "/dashboard/landlord/tenants", icon: Users },
     { name: "Payments", href: "/dashboard/landlord/payments", icon: CreditCard },
@@ -59,7 +60,7 @@ export function DashboardSidebar() {
     { name: "Settings", href: "/dashboard/tenant/settings", icon: Settings },
   ]
 
-  const links = isLandlord ? landlordLinks : tenantLinks
+  const links = isAgent ? agentLinks : tenantLinks
 
   if (!isOpen && !isMobile) {
     return (
@@ -169,9 +170,9 @@ export function DashboardSidebar() {
                   <div className="flex items-center gap-2">
                     <div className={cn(
                       "px-2 py-1 rounded-full text-xs font-medium",
-                      isLandlord ? "bg-blue-50 text-blue-700" : "bg-green-50 text-green-700"
+                      isAgent ? "bg-navy-50 text-navy-600" : "bg-green-50 text-green-700"
                     )}>
-                      {isLandlord ? "Landlord" : "Tenant"}
+                      {isAgent ? "Agent" : "Tenant"}
                     </div>
                     <Sparkles className="h-3 w-3 text-yellow-500 shrink-0" />
                   </div>

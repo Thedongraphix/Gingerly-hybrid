@@ -33,7 +33,7 @@ export default function SignupPage() {
           <Tabs defaultValue={userType} className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-8">
               <TabsTrigger value="tenant">Tenant</TabsTrigger>
-              <TabsTrigger value="landlord">Landlord</TabsTrigger>
+              <TabsTrigger value="landlord">Agent</TabsTrigger>
             </TabsList>
 
             <TabsContent value="tenant" className="space-y-6">

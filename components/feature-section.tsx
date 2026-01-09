@@ -131,7 +131,7 @@ export function FeatureSection() {
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Our platform streamlines every aspect of the landlord-tenant relationship with cutting-edge technology and intuitive design.
+            Our platform empowers agents to manage landlord partnerships and streamline tenant relationships with cutting-edge technology and intuitive design.
           </p>
           
           {/* Highlights */}

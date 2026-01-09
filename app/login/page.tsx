@@ -67,7 +67,7 @@ export default function LoginPage() {
             </Button>
             <Button variant="outline" asChild>
               <Link href="/signup?type=landlord">
-                Landlord
+                Agent
               </Link>
             </Button>
           </div>

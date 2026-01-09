@@ -45,7 +45,7 @@ export default function TenantDashboard() {
             </Button>
             <Button variant="outline" className="border-2 border-navy-500 text-navy-500 hover:bg-navy-500 hover:text-white">
               <User className="mr-2 h-5 w-5" />
-              Contact Landlord
+              Contact Agent
             </Button>
           </div>
         </div>

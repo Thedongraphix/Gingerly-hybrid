@@ -26,9 +26,9 @@ const navItems = [
     href: "/features",
     children: [
       {
-        title: "For Landlords",
+        title: "For Agents",
         href: "/features/landlords",
-        description: "Powerful tools to streamline your rental business",
+        description: "Powerful tools to manage landlords and rental properties",
         icon: "🏢"
       },
       {

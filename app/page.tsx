@@ -59,7 +59,7 @@ export default function Home() {
                     <span className="gradient-text">Gingerly</span>
                   </h1>
                   <p className="text-xl text-muted-foreground md:text-2xl leading-relaxed">
-                    The modern platform that streamlines rent collection for landlords and makes payments effortless for tenants.
+                    The modern platform for agents to manage landlords and properties, while making payments effortless for tenants.
                   </p>
                 </div>
 
@@ -67,7 +67,7 @@ export default function Home() {
                   <Link href="/signup?type=landlord" className="w-full sm:w-auto">
                     <Button size="lg" className="btn-primary w-full px-8 py-4 text-lg shadow-lg hover:shadow-xl">
                       <Users className="mr-2 h-5 w-5" />
-                      I'm a Landlord
+                      I'm an Agent
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
